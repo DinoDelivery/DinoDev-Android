@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/main_group"
+        android:checkableBehavior="single"
+        tools:ignore="MenuTitle">
+        <item
+            android:id="@+id/profile_item"
+            android:checked="true"
+            android:icon="@drawable/ic_menu_profile" />
+        <item
+            android:id="@+id/restaurants_item"
+            android:icon="@drawable/ic_menu_restaurants" />
+        <item
+            android:id="@+id/cart_item"
+            android:icon="@drawable/ic_menu_cart" />
+        <item
+            android:id="@+id/logout_item"
+            android:icon="@drawable/ic_menu_logout" />
+    </group>
+</menu>
