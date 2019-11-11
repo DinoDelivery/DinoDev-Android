@@ -15,9 +15,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
 
-    private val DOM_TORGOVLI_LAT = 49.441013265861436
-    private val DOM_TORGOVLI_LNG = 32.06598412245512
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,10 +27,24 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+        val mainActivity: MainActivity = requireActivity() as MainActivity
+        mainActivity.setToolbarTitle(getString(R.string.restaurants))
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(DOM_TORGOVLI_LAT, DOM_TORGOVLI_LNG), 15f))
+        mMap.moveCamera(
+            CameraUpdateFactory.newLatLngZoom(
+                LatLng(
+                    DOM_TORGOVLI_LAT,
+                    DOM_TORGOVLI_LNG
+                ), 15f
+            )
+        )
+    }
+
+    companion object {
+        private const val DOM_TORGOVLI_LAT = 49.441013265861436
+        private const val DOM_TORGOVLI_LNG = 32.06598412245512
     }
 }
