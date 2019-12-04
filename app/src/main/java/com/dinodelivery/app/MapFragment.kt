@@ -10,6 +10,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import kotlinx.android.synthetic.main.fragment_map.*
 
 class MapFragment : Fragment(), OnMapReadyCallback {
 
@@ -27,8 +28,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-        val mainActivity: MainActivity = requireActivity() as MainActivity
-        mainActivity.setToolbarTitle(getString(R.string.restaurants))
+        toolbarHeader.text = getString(R.string.restaurants)
     }
 
     override fun onMapReady(googleMap: GoogleMap) {

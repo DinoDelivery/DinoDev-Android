@@ -32,7 +32,8 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.container, fragment, null).commit()
     }
 
-    fun setToolbarTitle(title: String) {
-        toolbarHeader.text = title
+    fun navigateToFragmentAndAddToStack(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(R.id.container, fragment, null).addToBackStack(null).commit()
     }
+
 }

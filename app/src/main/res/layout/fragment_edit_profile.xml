@@ -32,12 +32,14 @@
         app:layout_constraintTop_toTopOf="@id/toolbar"
         tools:text="Main" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/btnEditProfile"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_edit"
+        android:text="@string/save"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/russo_one_regular"
         app:layout_constraintBottom_toBottomOf="@id/toolbarHeader"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/toolbarHeader" />
@@ -54,72 +56,65 @@
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <LinearLayout
-        android:id="@+id/info_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@color/view_background"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/appCompatTextView"
-        app:layout_constraintTop_toBottomOf="@id/imgUserPhoto"
-        app:layout_constraintVertical_chainStyle="spread_inside">
+        app:layout_constraintTop_toBottomOf="@id/imgUserPhoto">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/txtUserName"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="22dp"
-            android:fontFamily="@font/roboto_regular"
-            android:gravity="center_vertical"
-            android:text="@string/name"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            tools:text="Ім’я: Акакій" />
+            android:hint="@string/name_hint">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center_vertical"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                tools:text="Акакій" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/txtPhone"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="26dp"
-            android:fontFamily="@font/roboto_regular"
-            android:text="@string/phone"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            tools:text="Телефон: +3809111111111" />
+            android:hint="@string/phone_hint">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="26dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                tools:text="+3809111111111" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/txtCardNumber"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="26dp"
             android:layout_marginBottom="36dp"
-            android:fontFamily="@font/roboto_regular"
-            android:text="@string/card"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            tools:text="Картка: 5654 2356 3548 2564" />
+            android:hint="@string/card_hint">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fCardNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="26dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                tools:text="5654 2356 3548 2564" />
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/appCompatTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|bottom"
-        android:layout_marginBottom="30dp"
-        android:background="@color/button_color"
-        android:fontFamily="@font/russo_one_regular"
-        android:gravity="center_vertical"
-        android:padding="10dp"
-        android:text="@string/view_order"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/info_container"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
 </androidx.constraintlayout.widget.ConstraintLayout>

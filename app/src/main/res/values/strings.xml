@@ -3,7 +3,25 @@
     <string name="restaurants">Ресторани</string>
     <string name="profile">Профіль</string>
     <string name="view_order">Переглянути замовлення</string>
-    <string name="name">Ім’я:</string>
-    <string name="phone">Телефон:</string>
-    <string name="card">Картка:</string>
+    <string name="name">Ім’я: %s</string>
+    <string name="phone">Телефон: %s</string>
+    <string name="card">Картка: %s</string>
+    <string name="name_hint">Ім’я</string>
+    <string name="phone_hint">Телефон</string>
+    <string name="card_hint">Картка</string>
+    <string name="save">Зберегти</string>
+
+    <string name="adding_photo">Додавання фото</string>
+    <string name="choose_photo_source">Звідки додати фото?</string>
+    <string name="gallery">Галерея</string>
+
+    <string name="camera">Камера</string>
+
+    <string name="editing_photo">Редагування фото</string>
+    <string name="report_camera_request_denied">Щоб зробити фотографію, надайте, будь ласка, додатку доступ до камери пристрою</string>
+    <string name="report_external_storage_request_denied">Щоб обрати фотографію з галереї, надайте, будь ласка, додатку доступ до сховища даних пристрою</string>
+    <string name="report_camera_never_ask_again_issue">Для надання доступу до камери пристрою перейдіть, будь ласка, в системні налаштування додатка</string>
+    <string name="report_external_storage_never_ask_again_issue">Для надання доступу до сховища даних пристрою перейдіть, будь ласка, в системні налаштування додатка</string>
+    <string name="toast_error_please_try_again">Виникла помилка, будь ласка, спробуйте знову</string>
+
 </resources>
