@@ -1,10 +1,12 @@
-package com.dinodelivery.app
+package com.dinodelivery.app.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.dinodelivery.app.MainActivity
+import com.dinodelivery.app.R
 import com.dinodelivery.app.utils.ImageUtils
 import com.dinodelivery.app.utils.UserCacheUtils
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -46,6 +48,10 @@ class ProfileFragment : Fragment() {
     private fun initListeners() {
         btnEditProfile.setOnClickListener {
             (requireActivity() as MainActivity).navigateToFragmentAndAddToStack(EditProfileFragment())
+        }
+
+        btnOrder.setOnClickListener {
+            (requireActivity() as MainActivity).navigateToFragmentAndAddToStack(OrderFragment())
         }
     }
 }

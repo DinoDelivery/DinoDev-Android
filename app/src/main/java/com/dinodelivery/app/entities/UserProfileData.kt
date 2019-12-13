@@ -1,4 +1,4 @@
-package com.dinodelivery.app
+package com.dinodelivery.app.entities
 
 data class UserProfileData(
     var username: String? = null,

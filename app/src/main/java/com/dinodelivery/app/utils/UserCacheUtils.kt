@@ -3,7 +3,7 @@ package com.dinodelivery.app.utils
 import android.preference.PreferenceManager
 import com.dinodelivery.app.DinoDeliveryApp.Companion.MAPPER
 import com.dinodelivery.app.DinoDeliveryApp.Companion.context
-import com.dinodelivery.app.UserProfileData
+import com.dinodelivery.app.entities.UserProfileData
 
 
 object UserCacheUtils {

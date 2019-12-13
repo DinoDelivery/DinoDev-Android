@@ -1,4 +1,4 @@
-package com.dinodelivery.app
+package com.dinodelivery.app.fragments
 
 import android.Manifest
 import android.app.Activity
@@ -21,6 +21,9 @@ import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.signature.StringSignature
+import com.dinodelivery.app.viewmodels.EditProfileViewModel
+import com.dinodelivery.app.R
+import com.dinodelivery.app.entities.UserProfileData
 import com.dinodelivery.app.utils.ImageUtils
 import com.dinodelivery.app.utils.UserCacheUtils
 import com.yalantis.ucrop.UCrop
@@ -83,12 +86,13 @@ class EditProfileFragment : Fragment() {
 
     private fun initListeners() {
         btnSave.setOnClickListener {
-            UserCacheUtils.cachedUserData = UserProfileData(
-                fUserName.text.toString(),
-                fPhone.text.toString(),
-                fCardNumber.text.toString(),
-                photoUrl
-            )
+            UserCacheUtils.cachedUserData =
+                UserProfileData(
+                    fUserName.text.toString(),
+                    fPhone.text.toString(),
+                    fCardNumber.text.toString(),
+                    photoUrl
+                )
             fragmentManager?.popBackStack()
         }
         imgUserPhoto.setOnClickListener { editPhoto() }
@@ -192,7 +196,9 @@ class EditProfileFragment : Fragment() {
             Intent.ACTION_PICK,
             MediaStore.Images.Media.INTERNAL_CONTENT_URI
         )
-        startActivityForResult(intent, REQUEST_STORAGE)
+        startActivityForResult(intent,
+            REQUEST_STORAGE
+        )
     }
 
     private fun getPhotoFromCamera() {
@@ -200,7 +206,9 @@ class EditProfileFragment : Fragment() {
         fileUri = editProfileViewModel.getCacheImagePath(fileName)
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri)
-        startActivityForResult(intent, REQUEST_CAMERA)
+        startActivityForResult(intent,
+            REQUEST_CAMERA
+        )
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

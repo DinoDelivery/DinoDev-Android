@@ -1,4 +1,4 @@
-package com.dinodelivery.app
+package com.dinodelivery.app.viewmodels
 
 import android.app.Application
 import android.content.ContentResolver

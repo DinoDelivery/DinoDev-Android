@@ -23,5 +23,7 @@
     <string name="report_camera_never_ask_again_issue">Для надання доступу до камери пристрою перейдіть, будь ласка, в системні налаштування додатка</string>
     <string name="report_external_storage_never_ask_again_issue">Для надання доступу до сховища даних пристрою перейдіть, будь ласка, в системні налаштування додатка</string>
     <string name="toast_error_please_try_again">Виникла помилка, будь ласка, спробуйте знову</string>
+    <string name="order">Замовлення</string>
+    <string name="order_number">Замовлення №%d</string>
 
 </resources>
