@@ -25,5 +25,14 @@
     <string name="toast_error_please_try_again">Виникла помилка, будь ласка, спробуйте знову</string>
     <string name="order">Замовлення</string>
     <string name="order_number">Замовлення №%d</string>
+    <string name="delivered">Доставлено</string>
+    <string name="not_delivered">Не доставлено</string>
+
+    <string name="order_item_count">Кількість одиниць: %d</string>
+    <string name="order_delivery_address">Адреса доставки: %s</string>
+    <string name="order_delivery_time">Час доставки: %s</string>
+    <string name="order_price">Всього до спалти: %s</string>
+    <string name="rate">Оцінити</string>
+    <string name="rate_note">Оцініть доставку :)</string>
 
 </resources>
