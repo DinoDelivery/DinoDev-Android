@@ -1,3 +1,67 @@
 <resources>
     <string name="app_name">DinoDelivery</string>
+    <string name="restaurants_map">Карта закладів</string>
+    <string name="profile">Профіль</string>
+    <string name="view_order">Переглянути замовлення</string>
+    <string name="name">Ім’я: %s</string>
+    <string name="phone_template">Телефон: %s</string>
+    <string name="phone">Телефон:</string>
+    <string name="card">Картка: %s</string>
+    <string name="name_hint">Ім’я</string>
+    <string name="phone_hint">Телефон</string>
+    <string name="card_hint">Картка</string>
+    <string name="save">Зберегти</string>
+
+    <string name="adding_photo">Додавання фото</string>
+    <string name="choose_photo_source">Звідки додати фото?</string>
+    <string name="gallery">Галерея</string>
+
+    <string name="camera">Камера</string>
+
+    <string name="editing_photo">Редагування фото</string>
+    <string name="report_camera_request_denied">Щоб зробити фотографію, надайте, будь ласка, додатку доступ до камери пристрою</string>
+    <string name="report_external_storage_request_denied">Щоб обрати фотографію з галереї, надайте, будь ласка, додатку доступ до сховища даних пристрою</string>
+    <string name="report_camera_never_ask_again_issue">Для надання доступу до камери пристрою перейдіть, будь ласка, в системні налаштування додатка</string>
+    <string name="report_external_storage_never_ask_again_issue">Для надання доступу до сховища даних пристрою перейдіть, будь ласка, в системні налаштування додатка</string>
+    <string name="toast_error_please_try_again">Виникла помилка, будь ласка, спробуйте знову</string>
+    <string name="order">Замовлення</string>
+    <string name="order_number">Замовлення №%d</string>
+    <string name="delivered">Доставлено</string>
+    <string name="not_delivered">Не доставлено</string>
+
+    <string name="order_item_count">Кількість одиниць: %d</string>
+    <string name="order_delivery_address">Адреса доставки: %s</string>
+    <string name="order_delivery_time">Час доставки: %s</string>
+    <string name="order_price">Всього до спалти: %s</string>
+    <string name="rate">Оцінити</string>
+    <string name="rate_note">Оцініть доставку :)</string>
+
+    <string name="all_restaurants">Усі заклади</string>
+    <string name="open">Відчинено</string>
+    <string name="closed">Зачинено</string>
+    <string name="menu">Меню</string>
+    <string name="info">Інфо</string>
+    <string name="review_count">Відгуки (%d):</string>
+    <string name="work_schedule">Графік роботи:</string>
+    <string name="address">Адреса:</string>
+
+    <string-array name="work_days">
+        <item>неділя:</item>
+        <item>понеділок:</item>
+        <item>вівторок:</item>
+        <item>середа:</item>
+        <item>четвер:</item>
+        <item>п\'ятниця:</item>
+        <item>субота:</item>
+        <item>будні:</item>
+        <item>вихідні:</item>
+    </string-array>
+
+    <string name="price_template">%s грн.</string>
+    <string name="weight_template">%d г</string>
+
+    <string name="smth_went_wrong">Щось пішло не так, спробуйте пізніше</string>
+    <string name="dish_added_successfully">Страва успішно додана до замовлення</string>
+    <string name="ingredients">Інгредієнти:</string>
+
 </resources>

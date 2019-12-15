@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ffb76d</color>
-    <color name="colorPrimaryDark">#ffa264</color>
+    <color name="colorPrimary">#26FAAE</color>
+    <color name="colorPrimaryDark">#26FAAE</color>
     <color name="colorAccent">#eb2128</color>
+    <color name="white_transparent_80">#CCFFFFFF</color>
+    <color name="view_background">#23CC90</color>
+    <color name="button_color">#129466</color>
+    <color name="divider_color">#848484</color>
+    <color name="spinner_divider_color">#80848484</color>
+    <color name="status_green">#22B00A</color>
+    <color name="status_red">#BF0808</color>
 </resources>
