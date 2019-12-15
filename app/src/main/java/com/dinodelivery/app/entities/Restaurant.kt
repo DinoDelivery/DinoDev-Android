@@ -15,5 +15,7 @@ data class Restaurant(
     var photo: String? = null,
     var dishes: List<Dish>? = null,
     var workHours: List<WorkHour>? = null,
+    var phone: String? = null,
+    var address: String? = null,
     var reviews: List<Review>? = null
 ) : Parcelable

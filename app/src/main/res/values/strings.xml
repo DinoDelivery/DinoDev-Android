@@ -4,7 +4,8 @@
     <string name="profile">Профіль</string>
     <string name="view_order">Переглянути замовлення</string>
     <string name="name">Ім’я: %s</string>
-    <string name="phone">Телефон: %s</string>
+    <string name="phone_template">Телефон: %s</string>
+    <string name="phone">Телефон:</string>
     <string name="card">Картка: %s</string>
     <string name="name_hint">Ім’я</string>
     <string name="phone_hint">Телефон</string>
@@ -41,5 +42,19 @@
     <string name="menu">Меню</string>
     <string name="info">Інфо</string>
     <string name="review_count">Відгуки (%d):</string>
+    <string name="work_schedule">Графік роботи:</string>
+    <string name="address">Адреса:</string>
+
+    <string-array name="work_days">
+        <item>неділя:</item>
+        <item>понеділок:</item>
+        <item>вівторок:</item>
+        <item>середа:</item>
+        <item>четвер:</item>
+        <item>п\'ятниця:</item>
+        <item>субота:</item>
+        <item>будні:</item>
+        <item>вихідні:</item>
+    </string-array>
 
 </resources>

@@ -57,6 +57,8 @@ class RestaurantsRepository {
                         "22:00"
                     )
                 ),
+                "0472 545 235",
+                "бул. Шевченка",
                 listOf(
                     Review(
                         1,
@@ -119,6 +121,8 @@ class RestaurantsRepository {
                         "22:00"
                     )
                 ),
+                "0472 533 235",
+                "бул. Шевченка",
                 listOf(
                     Review(
                         1,

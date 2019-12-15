@@ -36,7 +36,7 @@ class ProfileFragment : Fragment() {
     private fun setInitialData() {
         UserCacheUtils.cachedUserData?.let {
             txtUserName.text = getString(R.string.name, it.username)
-            txtPhone.text = getString(R.string.phone, it.phone)
+            txtPhone.text = getString(R.string.phone_template, it.phone)
             txtCardNumber.text = getString(R.string.card, it.card)
             it.photo?.let {photo ->
                 val image = ImageUtils.decodeBase64(photo)

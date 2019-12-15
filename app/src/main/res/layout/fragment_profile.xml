@@ -83,7 +83,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="26dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="@string/phone"
+            android:text="@string/phone_template"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             tools:text="Телефон: +3809111111111" />
