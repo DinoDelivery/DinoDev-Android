@@ -1,6 +1,7 @@
 package com.dinodelivery.app.entities
 
 import android.os.Parcelable
+import com.dinodelivery.app.database.entities.DishEntity
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -16,31 +17,28 @@ data class Dish(
     var photo: String? = null,
     var weight: Int,
     var price: Double
-) : Parcelable
+) : Parcelable {
 
-enum class DishCategory {
-    BREAKFAST,
-    SNACK1,
-    LUNCH,
-    SNACK2,
-    DINNER
-}
+    fun toDishEntity(): DishEntity {
+        return DishEntity(dishId = id, name = name, price = price)
+    }
 
-enum class DishType {
-    SOUP,
-    DESSERT,
-    SALAD,
-    APPETIZER,
-    MAIN,
-    DRINK
-}
+    enum class DishType {
+        SOUP,
+        DESSERT,
+        SALAD,
+        APPETIZER,
+        MAIN,
+        DRINK
+    }
 
-enum class DishCuisine {
-    UKRAINIAN,
-    CHINESE,
-    INDIAN,
-    ITALIAN,
-    JAPANESE,
-    GENERAL,
-    FRENCH
+    enum class DishCuisine {
+        UKRAINIAN,
+        CHINESE,
+        INDIAN,
+        ITALIAN,
+        JAPANESE,
+        GENERAL,
+        FRENCH
+    }
 }

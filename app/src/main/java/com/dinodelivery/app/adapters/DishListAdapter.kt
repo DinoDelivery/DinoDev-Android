@@ -29,6 +29,8 @@ class DishListAdapter(
         holder.onBind(dishes[position])
     }
 
+    private fun Double.round(decimals: Int = 2): String = "%.${decimals}f".format(this)
+
     inner class DishViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun onBind(dish: Dish) {
             dish.photo?.let {
@@ -42,7 +44,7 @@ class DishListAdapter(
                     .into(itemView.imgDishPhoto)
             }
             itemView.txtDishName.text = dish.name
-            itemView.txtDishPrice.text = dish.price.toString()
+            itemView.txtDishPrice.text = itemView.context.getString(R.string.price_template, dish.price.round())
             itemView.btnAddToCart.setOnClickListener { onDishClickListener.onDishSelect(dish) }
 
             itemView.setOnClickListener { onDishClickListener.onDishClick(dish) }

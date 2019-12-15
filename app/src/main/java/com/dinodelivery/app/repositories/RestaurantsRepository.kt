@@ -19,8 +19,8 @@ class RestaurantsRepository {
                     Dish(
                         1,
                         "Шріматі",
-                        DishType.DESSERT,
-                        DishCuisine.INDIAN,
+                        Dish.DishType.DESSERT,
+                        Dish.DishCuisine.INDIAN,
                         listOf(
                             Review(
                                 1,
@@ -83,8 +83,8 @@ class RestaurantsRepository {
                     Dish(
                         1,
                         "Шріматі",
-                        DishType.DESSERT,
-                        DishCuisine.INDIAN,
+                        Dish.DishType.DESSERT,
+                        Dish.DishCuisine.INDIAN,
                         listOf(
                             Review(
                                 1,
