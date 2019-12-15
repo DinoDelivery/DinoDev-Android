@@ -16,4 +16,7 @@ class UserRepository {
         return userDao?.getUser(username, password)
     }
 
+    suspend fun getUserById(id: Int): User? {
+        return userDao?.getUserById(id)
+    }
 }

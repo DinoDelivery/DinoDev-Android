@@ -10,4 +10,8 @@ data class Review(
     var date: String? = null,
     var rating: Double = 0.0,
     var reviewText: String? = null
-) : Parcelable
+) : Parcelable {
+    fun toReviewItem(): ReviewItem {
+        return ReviewItem(this)
+    }
+}

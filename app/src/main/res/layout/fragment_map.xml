@@ -28,9 +28,9 @@
         android:gravity="center_vertical"
         android:textColor="@android:color/white"
         android:textSize="18sp"
+        android:text="@string/restaurants_map"
         app:layout_constraintBottom_toBottomOf="@id/toolbar"
-        app:layout_constraintTop_toTopOf="@id/toolbar"
-        tools:text="Main" />
+        app:layout_constraintTop_toTopOf="@id/toolbar" />
 
     <fragment
         android:id="@+id/map"

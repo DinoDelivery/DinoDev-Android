@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.dinodelivery.app.MainActivity
 import com.dinodelivery.app.R
 import com.dinodelivery.app.adapters.RestaurantListAdapter
 import com.dinodelivery.app.entities.Restaurant
@@ -41,7 +42,7 @@ class RestaurantsFragment : Fragment() {
             restaurantsRecyclerView.adapter =
                 RestaurantListAdapter(it, object : RestaurantListAdapter.RestaurantClickListener {
                     override fun onRestaurantClick(restaurant: Restaurant) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                        (requireActivity() as MainActivity).navigateToFragmentAndAddToStack(SingleRestaurantFragment.newInstance(restaurant))
                     }
                 })
         })
