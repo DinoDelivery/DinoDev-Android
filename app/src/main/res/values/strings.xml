@@ -57,4 +57,6 @@
         <item>вихідні:</item>
     </string-array>
 
+    <string name="price_template">%s грн.</string>
+
 </resources>

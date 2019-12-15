@@ -61,6 +61,7 @@ class SingleRestaurantFragment : Fragment() {
             (requireActivity() as MainActivity).navigateToFragment(MapFragment())
         }
         btnInfo.setOnClickListener { showRestaurantInfo() }
+        btnMenu.setOnClickListener { (requireActivity() as MainActivity).navigateToFragmentAndAddToStack(MenuFragment.newInstance(restaurant?.dishes?.toMutableList())) }
     }
 
     private fun setReviewList(reviews: List<ReviewItem>) {
