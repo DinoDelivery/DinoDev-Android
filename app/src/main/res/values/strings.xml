@@ -58,8 +58,10 @@
     </string-array>
 
     <string name="price_template">%s грн.</string>
+    <string name="weight_template">%d г</string>
 
     <string name="smth_went_wrong">Щось пішло не так, спробуйте пізніше</string>
     <string name="dish_added_successfully">Страва успішно додана до замовлення</string>
+    <string name="ingredients">Інгредієнти:</string>
 
 </resources>

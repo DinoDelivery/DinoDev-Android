@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.dinodelivery.app.MainActivity
 import com.dinodelivery.app.R
 import com.dinodelivery.app.adapters.DishListAdapter
 import com.dinodelivery.app.entities.Dish
@@ -53,7 +54,7 @@ class MenuFragment : Fragment() {
         menuRecyclerView.adapter =
             DishListAdapter(dishes, object : DishListAdapter.DishClickListener {
                 override fun onDishClick(dish: Dish) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                    (requireActivity() as MainActivity).navigateToFragmentAndAddToStack(DishFragment.newInstance(dish))
                 }
 
                 override fun onDishSelect(dish: Dish) {

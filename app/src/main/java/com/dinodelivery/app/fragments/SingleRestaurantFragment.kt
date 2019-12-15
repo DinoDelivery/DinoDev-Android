@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.signature.StringSignature
 import com.dinodelivery.app.MainActivity
 import com.dinodelivery.app.R
 import com.dinodelivery.app.adapters.ReviewListAdapter
@@ -50,6 +53,16 @@ class SingleRestaurantFragment : Fragment() {
                     }
                 })
             }
+            it.photo?.let { photo ->
+                Glide.with(requireContext())
+                    .load(photo)
+                    .placeholder(R.drawable.photo_placeholder)
+                    .error(R.drawable.photo_placeholder)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .signature(StringSignature(photo))
+                    .dontAnimate()
+                    .into(imgRestaurantPhoto)
+            }
         }
 
         initListeners()
@@ -61,7 +74,11 @@ class SingleRestaurantFragment : Fragment() {
             (requireActivity() as MainActivity).navigateToFragment(MapFragment())
         }
         btnInfo.setOnClickListener { showRestaurantInfo() }
-        btnMenu.setOnClickListener { (requireActivity() as MainActivity).navigateToFragmentAndAddToStack(MenuFragment.newInstance(restaurant?.dishes?.toMutableList())) }
+        btnMenu.setOnClickListener {
+            (requireActivity() as MainActivity).navigateToFragmentAndAddToStack(
+                MenuFragment.newInstance(restaurant?.dishes?.toMutableList())
+            )
+        }
     }
 
     private fun setReviewList(reviews: List<ReviewItem>) {
