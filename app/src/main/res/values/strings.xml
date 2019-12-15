@@ -35,4 +35,8 @@
     <string name="rate">Оцінити</string>
     <string name="rate_note">Оцініть доставку :)</string>
 
+    <string name="all_restaurants">Усі заклади</string>
+    <string name="open">Відчинено</string>
+    <string name="closed">Зачинено</string>
+
 </resources>
