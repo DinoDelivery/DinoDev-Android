@@ -3,6 +3,7 @@ package com.dinodelivery.app
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.dinodelivery.app.fragments.CartFragment
 import com.dinodelivery.app.fragments.MapFragment
 import com.dinodelivery.app.fragments.ProfileFragment
 import com.dinodelivery.app.fragments.RestaurantsFragment
@@ -25,6 +26,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.profile_item -> {
                     navigateToFragment(ProfileFragment())
+                    true
+                }
+                R.id.cart_item -> {
+                    navigateToFragment(CartFragment())
                     true
                 }
                 else -> false

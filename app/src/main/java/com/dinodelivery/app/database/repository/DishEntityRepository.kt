@@ -16,6 +16,10 @@ class DishEntityRepository {
         return dishDao?.getDishes()
     }
 
+    suspend fun deleteDishById(id: Int) {
+        dishDao?.deleteDishById(id)
+    }
+
     suspend fun clearAllDishes() {
         dishDao?.clearAllDishes()
     }

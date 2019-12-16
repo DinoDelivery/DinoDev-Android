@@ -15,6 +15,9 @@ interface DishDao {
     @Query("SELECT * FROM dishes")
     suspend fun getDishes(): List<DishEntity>?
 
+    @Query("DELETE FROM dishes WHERE id = (SELECT id FROM dishes WHERE dishId = :id LIMIT 1)")
+    suspend fun deleteDishById(id: Int)
+
     @Query("DELETE FROM dishes")
     suspend fun clearAllDishes()
 }
