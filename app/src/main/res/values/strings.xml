@@ -72,6 +72,8 @@
     <string name="time">Час</string>
     <string name="code">Код довіри</string>
     <string name="payment">Оплата</string>
+    <string name="thank_you_message">Дякуємо за замовлення!</string>
+    <string name="go_to_main_screen">На головну</string>
 
     <string-array name="payment">
         <item>Карткою</item>

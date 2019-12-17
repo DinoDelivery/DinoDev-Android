@@ -30,4 +30,9 @@
     <item name="android:dropDownListViewStyle">@style/SpinnerStyle</item>
     </style>
 
+    <style name="CustomEditTextView">
+        <item name="colorControlActivated">@color/button_color</item>
+        <item name="android:textColorHighlight">@color/button_color</item>
+    </style>
+
 </resources>
