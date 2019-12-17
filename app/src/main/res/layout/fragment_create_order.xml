@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        tools:layout_height="40dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/toolbarHeader"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/russo_one_regular"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:text="@string/make_order"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar"
+        app:layout_constraintTop_toTopOf="@id/toolbar" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_map"
+        app:layout_constraintBottom_toBottomOf="@id/toolbarHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/toolbarHeader" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/view_background"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:hint="@string/address_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fUAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center_vertical"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                tools:text="Шевченка 312" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/time">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:clickable="true"
+                android:focusable="false"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center_vertical"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                tools:text="13:30" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/name_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center_vertical"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                tools:text="Акакій" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/phone_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                tools:text="+3809111111111" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/payment" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/paymentSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:theme="@style/AppTheme.Spinner" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="36dp"
+            android:hint="@string/code">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                tools:text="56542564" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtOrderPrice"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/view_background"
+        android:fontFamily="@font/russo_one_regular"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:text="@string/order_cart_price"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnMakeOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="17dp"
+        android:background="@color/button_color"
+        android:fontFamily="@font/russo_one_regular"
+        android:gravity="center_vertical"
+        android:padding="6dp"
+        android:text="@string/create_order"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txtOrderPrice" />
+</androidx.constraintlayout.widget.ConstraintLayout>

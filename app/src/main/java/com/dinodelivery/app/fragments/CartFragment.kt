@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.dinodelivery.app.MainActivity
 import com.dinodelivery.app.R
 import com.dinodelivery.app.adapters.CartItemListAdapter
 import com.dinodelivery.app.adapters.OrderDividerDecoration
@@ -33,7 +34,23 @@ class CartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         cartViewModel.getCartItems()
+
+        initListeners()
+
         initObservers()
+    }
+
+    private fun initListeners() {
+        btnMap.setOnClickListener {
+            (requireActivity() as MainActivity).clearFragments()
+            (requireActivity() as MainActivity).navigateToFragment(MapFragment())
+        }
+
+        btnMakeOrder.setOnClickListener {
+            (requireActivity() as MainActivity).navigateToFragment(
+                CreateOrderFragment.newInstance(txtOrderPrice.text.toString())
+            )
+        }
     }
 
     private fun initObservers() {
@@ -41,16 +58,17 @@ class CartFragment : Fragment() {
 
             txtOrderPrice.text = getString(R.string.order_cart_price, getPrice(it))
 
-            cartItemsRecyclerView.adapter = CartItemListAdapter(it, object: CartItemListAdapter.CartItemClickListener {
-                override fun onCartItemAdded(dish: DishEntity) {
-                    cartViewModel.addCartItem(dish)
-                }
+            cartItemsRecyclerView.adapter =
+                CartItemListAdapter(it, object : CartItemListAdapter.CartItemClickListener {
+                    override fun onCartItemAdded(dish: DishEntity) {
+                        cartViewModel.addCartItem(dish)
+                    }
 
-                override fun onCartItemRemoved(dish: DishEntity) {
-                    cartViewModel.deleteCartItem(dish)
-                }
+                    override fun onCartItemRemoved(dish: DishEntity) {
+                        cartViewModel.deleteCartItem(dish)
+                    }
 
-            })
+                })
             cartItemsRecyclerView.addItemDecoration(OrderDividerDecoration())
         })
 

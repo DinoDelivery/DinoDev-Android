@@ -45,6 +45,7 @@
     <string name="review_count">Відгуки (%d):</string>
     <string name="work_schedule">Графік роботи:</string>
     <string name="address">Адреса:</string>
+    <string name="address_hint">Адреса</string>
 
     <string-array name="work_days">
         <item>неділя:</item>
@@ -67,5 +68,14 @@
 
     <string name="cart">Кошик</string>
     <string name="make_order">Оформити</string>
+    <string name="create_order">Замовити</string>
+    <string name="time">Час</string>
+    <string name="code">Код довіри</string>
+    <string name="payment">Оплата</string>
+
+    <string-array name="payment">
+        <item>Карткою</item>
+        <item>Готівкою</item>
+    </string-array>
 
 </resources>
