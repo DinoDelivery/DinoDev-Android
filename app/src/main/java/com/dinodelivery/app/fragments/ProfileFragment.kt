@@ -30,7 +30,14 @@ class ProfileFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        setDefaultData()
         setInitialData()
+    }
+
+    private fun setDefaultData() {
+        txtUserName.text = getString(R.string.name, "")
+        txtPhone.text = getString(R.string.phone_template, "")
+        txtCardNumber.text = getString(R.string.card, "")
     }
 
     private fun setInitialData() {

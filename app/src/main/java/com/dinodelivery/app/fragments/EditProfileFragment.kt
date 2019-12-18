@@ -16,16 +16,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.signature.StringSignature
-import com.dinodelivery.app.viewmodels.EditProfileViewModel
 import com.dinodelivery.app.R
 import com.dinodelivery.app.entities.UserProfileData
 import com.dinodelivery.app.utils.ImageUtils
 import com.dinodelivery.app.utils.UserCacheUtils
+import com.dinodelivery.app.viewmodels.EditProfileViewModel
 import com.yalantis.ucrop.UCrop
 import kotlinx.android.synthetic.main.fragment_edit_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.toolbarHeader
@@ -96,6 +97,13 @@ class EditProfileFragment : Fragment() {
             fragmentManager?.popBackStack()
         }
         imgUserPhoto.setOnClickListener { editPhoto() }
+
+        fCardNumber.doAfterTextChanged {
+            if (it.toString().substringAfterLast(" ").length > 3 && it.toString().length < 17) {
+                fCardNumber.setText(it.toString().plus(" "))
+                fCardNumber.setSelection(it.toString().length + 1)
+            }
+        }
     }
 
     private fun editPhoto() {
@@ -196,7 +204,8 @@ class EditProfileFragment : Fragment() {
             Intent.ACTION_PICK,
             MediaStore.Images.Media.INTERNAL_CONTENT_URI
         )
-        startActivityForResult(intent,
+        startActivityForResult(
+            intent,
             REQUEST_STORAGE
         )
     }
@@ -206,7 +215,8 @@ class EditProfileFragment : Fragment() {
         fileUri = editProfileViewModel.getCacheImagePath(fileName)
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri)
-        startActivityForResult(intent,
+        startActivityForResult(
+            intent,
             REQUEST_CAMERA
         )
     }

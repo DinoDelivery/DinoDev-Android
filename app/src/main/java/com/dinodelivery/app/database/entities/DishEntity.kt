@@ -9,5 +9,6 @@ data class DishEntity(
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") var id: Int = 0,
     @ColumnInfo(name = "dishId") var dishId: Int = 0,
     @ColumnInfo(name = "name") var name: String? = null,
-    @ColumnInfo(name = "price") var price: Double = 0.0
+    @ColumnInfo(name = "price") var price: Double = 0.0,
+    @ColumnInfo(name = "photo") var photo: String? = null
 )

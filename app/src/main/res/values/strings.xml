@@ -33,6 +33,7 @@
     <string name="order_delivery_address">Адреса доставки: %s</string>
     <string name="order_delivery_time">Час доставки: %s</string>
     <string name="order_price">Всього до спалти: %s</string>
+    <string name="order_cart_price">Всього: %s грн.</string>
     <string name="rate">Оцінити</string>
     <string name="rate_note">Оцініть доставку :)</string>
 
@@ -44,6 +45,7 @@
     <string name="review_count">Відгуки (%d):</string>
     <string name="work_schedule">Графік роботи:</string>
     <string name="address">Адреса:</string>
+    <string name="address_hint">Адреса</string>
 
     <string-array name="work_days">
         <item>неділя:</item>
@@ -63,5 +65,19 @@
     <string name="smth_went_wrong">Щось пішло не так, спробуйте пізніше</string>
     <string name="dish_added_successfully">Страва успішно додана до замовлення</string>
     <string name="ingredients">Інгредієнти:</string>
+
+    <string name="cart">Кошик</string>
+    <string name="make_order">Оформити</string>
+    <string name="create_order">Замовити</string>
+    <string name="time">Час</string>
+    <string name="code">Код довіри</string>
+    <string name="payment">Оплата</string>
+    <string name="thank_you_message">Дякуємо за замовлення!</string>
+    <string name="go_to_main_screen">На головну</string>
+
+    <string-array name="payment">
+        <item>Карткою</item>
+        <item>Готівкою</item>
+    </string-array>
 
 </resources>

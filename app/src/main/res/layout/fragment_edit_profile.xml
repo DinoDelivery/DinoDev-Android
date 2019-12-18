@@ -67,7 +67,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
-            android:hint="@string/name_hint">
+            android:hint="@string/name_hint"
+            android:theme="@style/CustomEditTextView">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fUserName"
                 android:layout_width="match_parent"
@@ -75,8 +77,10 @@
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/roboto_regular"
                 android:gravity="center_vertical"
+                android:inputType="textPersonName"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
+                android:theme="@style/CustomEditTextView"
                 tools:text="Акакій" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,7 +88,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
-            android:hint="@string/phone_hint">
+            android:hint="@string/phone_hint"
+            android:theme="@style/CustomEditTextView">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fPhone"
                 android:layout_width="match_parent"
@@ -92,8 +98,10 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="26dp"
                 android:fontFamily="@font/roboto_regular"
+                android:inputType="phone"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
+                android:theme="@style/CustomEditTextView"
                 tools:text="+3809111111111" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,7 +110,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
             android:layout_marginBottom="36dp"
-            android:hint="@string/card_hint">
+            android:hint="@string/card_hint"
+            android:theme="@style/CustomEditTextView">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fCardNumber"
                 android:layout_width="match_parent"
@@ -110,8 +120,11 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="26dp"
                 android:fontFamily="@font/roboto_regular"
+                android:inputType="number"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
+                android:maxLength="19"
+                android:theme="@style/CustomEditTextView"
                 tools:text="5654 2356 3548 2564" />
         </com.google.android.material.textfield.TextInputLayout>
 

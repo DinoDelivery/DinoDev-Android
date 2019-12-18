@@ -103,6 +103,30 @@ class RestaurantsRepository {
                         null,
                         200,
                         35.90
+                    ),
+                    Dish(
+                        3,
+                        "Шріматі 2",
+                        Dish.DishType.DESSERT,
+                        Dish.DishCuisine.INDIAN,
+                        listOf(
+                            Review(
+                                2,
+                                1,
+                                "27/10/2018",
+                                4.0,
+                                "Чудовий десерт! :)"
+                            )
+                        ),
+                        4.6,
+                        listOf(
+                            Ingredient(1, "Яблуко"),
+                            Ingredient(2, "Борошно")
+                        ),
+                        "Традиційний пиріг з яблуком",
+                        null,
+                        200,
+                        35.90
                     )
                 ),
                 listOf(
