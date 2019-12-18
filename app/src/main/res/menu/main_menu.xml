@@ -7,15 +7,15 @@
         tools:ignore="MenuTitle">
         <item
             android:id="@+id/profile_item"
-            android:icon="@drawable/ic_menu_profile" />
+            android:icon="@drawable/ic_menu_profile"
+            android:checked="false"/>
         <item
             android:id="@+id/restaurants_item"
-            android:icon="@drawable/ic_menu_restaurants" />
+            android:icon="@drawable/ic_menu_restaurants"
+            android:checked="false"/>
         <item
             android:id="@+id/cart_item"
-            android:icon="@drawable/ic_menu_cart" />
-        <item
-            android:id="@+id/logout_item"
-            android:icon="@drawable/ic_menu_logout" />
+            android:icon="@drawable/ic_menu_cart"
+            android:checked="false"/>
     </group>
 </menu>

@@ -14,7 +14,7 @@ class RestaurantsRepository {
                 "Чудовий ресторан з індійською кухнею",
                 49.441013265861436,
                 32.06598412245512,
-                null,
+                "https://media-cdn.tripadvisor.com/media/photo-s/11/4a/54/fe/essence-restaurant.jpg",
                 listOf(
                     Dish(
                         1,
@@ -36,7 +36,7 @@ class RestaurantsRepository {
                             Ingredient(2, "Борошно")
                         ),
                         "Традиційний пиріг з яблуком",
-                        null,
+                        "https://raobcn.com/wp-content/uploads/2019/11/Rao-restaurant-romantic-restaurant-barcelona.jpg",
                         200,
                         35.90
                     )
@@ -79,7 +79,7 @@ class RestaurantsRepository {
                 "Чудовий ресторан з індійською кухнею",
                 49.433307428826836,
                 32.07641020417213,
-                null,
+                "https://www.wien.info/media/images/restaurant-mraz-sohn-innen-3to2.jpeg",
                 listOf(
                     Dish(
                         1,
@@ -167,7 +167,7 @@ class RestaurantsRepository {
                 "Ресторан, в якому готують найсмачнішу пасту :)",
                 49.433307428826836,
                 32.09641020417213,
-                null,
+                "https://www.lofrestaurant.com/wp-content/uploads/sites/13/2018/10/Pillows_Grand_Hotel_Reylof_Gent_Lof_Restaurant_05-1052x675.jpg",
                 listOf(
                     Dish(
                         1,
@@ -213,7 +213,7 @@ class RestaurantsRepository {
                             Ingredient(2, "Маскарпоне")
                         ),
                         "Традиційний італійський десерт",
-                        null,
+                        "https://cookery.site/wp-content/uploads/2019/08/58697323-360x381.png.pagespeed.ce.htl5iQBArt.png",
                         200,
                         65.00
                     )

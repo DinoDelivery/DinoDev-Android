@@ -48,6 +48,7 @@
         android:layout_height="120dp"
         android:layout_gravity="center"
         android:layout_marginTop="34dp"
+        android:scaleType="fitCenter"
         android:src="@drawable/photo_placeholder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

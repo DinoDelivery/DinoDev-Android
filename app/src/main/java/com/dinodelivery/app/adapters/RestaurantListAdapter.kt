@@ -35,7 +35,7 @@ class RestaurantListAdapter(
 
     @SuppressLint("SimpleDateFormat")
     private fun getCurrentTime(): String {
-        val sdf = SimpleDateFormat("hh:mm")
+        val sdf = SimpleDateFormat("H:mm")
         return sdf.format(Calendar.getInstance().time)
     }
 
