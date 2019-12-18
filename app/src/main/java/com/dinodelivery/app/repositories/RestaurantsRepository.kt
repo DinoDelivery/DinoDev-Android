@@ -67,13 +67,14 @@ class RestaurantsRepository {
                         4.0,
                         "Чудовий ресторан! :)"
                     )
-                )
+                ),
+                Dish.DishCuisine.INDIAN
             ),
 
             Restaurant(
                 1,
                 "Masala 2",
-                4.7,
+                2.7,
                 null,
                 "Чудовий ресторан з індійською кухнею",
                 49.433307428826836,
@@ -152,10 +153,99 @@ class RestaurantsRepository {
                         1,
                         1,
                         "27/10/2018",
+                        3.0,
+                        "Не сподобалося"
+                    )
+                ),
+                Dish.DishCuisine.INDIAN
+            ),
+            Restaurant(
+                1,
+                "L'italiano",
+                5.0,
+                null,
+                "Ресторан, в якому готують найсмачнішу пасту :)",
+                49.433307428826836,
+                32.09641020417213,
+                null,
+                listOf(
+                    Dish(
+                        1,
+                        "Паста з морепродуктами",
+                        Dish.DishType.MAIN,
+                        Dish.DishCuisine.ITALIAN,
+                        listOf(
+                            Review(
+                                1,
+                                1,
+                                "27/10/2018",
+                                4.9,
+                                "Смакота :)"
+                            )
+                        ),
+                        4.6,
+                        listOf(
+                            Ingredient(1, "Риба"),
+                            Ingredient(2, "Спагеті")
+                        ),
+                        "Традиційна паста",
+                        null,
+                        250,
+                        78.75
+                    ),
+                    Dish(
+                        3,
+                        "Тірамісу",
+                        Dish.DishType.DESSERT,
+                        Dish.DishCuisine.ITALIAN,
+                        listOf(
+                            Review(
+                                2,
+                                1,
+                                "27/10/2018",
+                                5.0,
+                                "Дуже яскравий смак"
+                            )
+                        ),
+                        4.6,
+                        listOf(
+                            Ingredient(1, "Вино"),
+                            Ingredient(2, "Маскарпоне")
+                        ),
+                        "Традиційний італійський десерт",
+                        null,
+                        200,
+                        65.00
+                    )
+                ),
+                listOf(
+                    WorkHour(
+                        1,
+                        1,
+                        WorkHour.WEEKDAY,
+                        "09:00",
+                        "20:00"
+                    ),
+                    WorkHour(
+                        2,
+                        1,
+                        WorkHour.WEEKEND,
+                        "11:00",
+                        "22:00"
+                    )
+                ),
+                "0472 533 235",
+                "бул. Шевченка",
+                listOf(
+                    Review(
+                        1,
+                        1,
+                        "27/10/2018",
                         4.0,
                         "Чудовий ресторан! :)"
                     )
-                )
+                ),
+                Dish.DishCuisine.ITALIAN
             )
         )
     }

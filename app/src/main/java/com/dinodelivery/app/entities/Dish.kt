@@ -38,7 +38,7 @@ data class Dish(
         INDIAN,
         ITALIAN,
         JAPANESE,
-        GENERAL,
-        FRENCH
+        FRENCH,
+        GENERAL
     }
 }

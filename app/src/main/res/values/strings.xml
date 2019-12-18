@@ -81,5 +81,28 @@
     </string-array>
 
     <string name="enter_order_info">Будь ласка, заповніть інформацію про замовлення</string>
+    <string name="restaurant_rating">Рейтинг закладу</string>
+    <string name="cuisine">Кухня</string>
+    <string name="filter">Фільтрувати</string>
+
+    <string-array name="cuisine">
+        <item>всі</item>
+        <item>українська</item>
+        <item>китайська</item>
+        <item>індійська</item>
+        <item>італійська</item>
+        <item>японська</item>
+        <item>французька</item>
+        <item>загальна</item>
+    </string-array>
+
+    <string-array name="dish_type">
+        <item>супи</item>
+        <item>десерти</item>
+        <item>салати</item>
+        <item>закуски</item>
+        <item>основні</item>
+        <item>напої</item>
+    </string-array>
 
 </resources>
