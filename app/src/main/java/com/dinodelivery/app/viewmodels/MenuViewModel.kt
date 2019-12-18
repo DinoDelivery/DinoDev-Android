@@ -36,8 +36,33 @@ class MenuViewModel(application: Application) : AndroidViewModel(application) {
             SortItem("За алфавітом", SortItem.SortCriteria.ALPHABET, false),
             SortItem("За ціною", SortItem.SortCriteria.PRICE, false),
             SortItem("За оцінкою", SortItem.SortCriteria.RATING, false)
-
         )
+    }
+
+
+    fun getDishType(dishType: String?): Dish.DishType? {
+        return when (dishType) {
+            "супи" -> Dish.DishType.SOUP
+            "десерти" -> Dish.DishType.DESSERT
+            "салати" -> Dish.DishType.SALAD
+            "закуски" -> Dish.DishType.APPETIZER
+            "основні" -> Dish.DishType.MAIN
+            "напої" -> Dish.DishType.DRINK
+            else -> null
+        }
+    }
+
+    fun getCuisine(cuisine: String?): Dish.DishCuisine? {
+        return when (cuisine) {
+            "українська" -> Dish.DishCuisine.UKRAINIAN
+            "китайська" -> Dish.DishCuisine.CHINESE
+            "індійська" -> Dish.DishCuisine.INDIAN
+            "італійська" -> Dish.DishCuisine.ITALIAN
+            "японська" -> Dish.DishCuisine.JAPANESE
+            "французька" -> Dish.DishCuisine.FRENCH
+            "загальна" -> Dish.DishCuisine.GENERAL
+            else -> null
+        }
     }
 
     companion object {

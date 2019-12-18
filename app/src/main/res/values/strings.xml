@@ -85,6 +85,7 @@
     <string name="cuisine">Кухня</string>
     <string name="filter">Фільтрувати</string>
     <string name="sort">Сортувати</string>
+    <string name="dish_type">Вид страви</string>
 
     <string-array name="cuisine">
         <item>всі</item>
@@ -98,6 +99,7 @@
     </string-array>
 
     <string-array name="dish_type">
+        <item>всі</item>
         <item>супи</item>
         <item>десерти</item>
         <item>салати</item>

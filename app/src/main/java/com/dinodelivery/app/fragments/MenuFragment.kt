@@ -7,6 +7,7 @@ import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -21,6 +22,7 @@ import com.dinodelivery.app.entities.Dish
 import com.dinodelivery.app.entities.SortItem
 import com.dinodelivery.app.viewmodels.MenuViewModel
 import kotlinx.android.synthetic.main.dish_sort_dialog.view.*
+import kotlinx.android.synthetic.main.dishes_filter_dialog.view.*
 import kotlinx.android.synthetic.main.fragment_menu.*
 
 
@@ -82,6 +84,14 @@ class MenuFragment : Fragment() {
             dishes?.let { setDishes(it) }
             true
         }
+
+
+        btnFilter.setOnClickListener { showFilterDialog() }
+
+        btnFilter.setOnLongClickListener {
+            dishes?.let { setDishes(it) }
+            true
+        }
     }
 
     private fun initObservers() {
@@ -126,6 +136,50 @@ class MenuFragment : Fragment() {
         }
 
         alertDialog.show()
+    }
+
+    private fun showFilterDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.dishes_filter_dialog, null)
+        val alertDialog = AlertDialog.Builder(requireContext()).setView(dialogView).create()
+        alertDialog.window?.setBackgroundDrawable(
+            ContextCompat.getDrawable(
+                requireContext(),
+                R.drawable.dishes_filter_background
+            )
+        )
+        with(dialogView) {
+            ratingSpinner.adapter =
+                ArrayAdapter<Int>(context, R.layout.rating_spinner_item, arrayOf(1, 2, 3, 4, 5))
+            typeSpinner.adapter = ArrayAdapter<String>(
+                context,
+                R.layout.rating_spinner_item,
+                context.resources.getStringArray(R.array.dish_type)
+            )
+            cuisineSpinner.adapter = ArrayAdapter<String>(
+                context,
+                R.layout.rating_spinner_item,
+                context.resources.getStringArray(R.array.cuisine)
+            )
+            btnFilterRestaurants.setOnClickListener {
+                filterDishes(
+                    ratingSpinner.selectedItem.toString().toInt(),
+                    typeSpinner.selectedItem.toString(),
+                    cuisineSpinner.selectedItem.toString()
+                )
+                alertDialog.dismiss()
+            }
+        }
+        alertDialog.show()
+    }
+
+    private fun filterDishes(rating: Int?, dishType: String?, cuisine: String?) {
+        dishes?.filter { it.rating >= rating ?: 0 }?.filter { it.dishType == menuViewModel.getDishType(dishType)?:it.dishType }?.filter {
+            it.cuisine == menuViewModel.getCuisine(
+                cuisine
+            ) ?: it.cuisine
+        }?.let {
+            setDishes(it)
+        }
     }
 
     companion object {
