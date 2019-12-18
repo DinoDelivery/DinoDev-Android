@@ -60,5 +60,10 @@ class ProfileFragment : Fragment() {
         btnOrder.setOnClickListener {
             (requireActivity() as MainActivity).navigateToFragmentAndAddToStack(OrderFragment())
         }
+
+        btnMap.setOnClickListener {
+            (requireActivity() as MainActivity).clearFragments()
+            (requireActivity() as MainActivity).navigateToFragment(MapFragment())
+        }
     }
 }

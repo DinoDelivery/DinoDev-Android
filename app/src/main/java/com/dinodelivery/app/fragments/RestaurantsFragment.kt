@@ -32,9 +32,18 @@ class RestaurantsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initListeners()
+
         initObservers()
 
         restaurantsViewModel.getRestaurants()
+    }
+
+    private fun initListeners() {
+        btnMap.setOnClickListener {
+            (requireActivity() as MainActivity).clearFragments()
+            (requireActivity() as MainActivity).navigateToFragment(MapFragment())
+        }
     }
 
     private fun initObservers() {
