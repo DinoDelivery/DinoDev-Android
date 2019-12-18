@@ -8,6 +8,7 @@ import com.dinodelivery.app.DinoDeliveryApp.Companion.context
 import com.dinodelivery.app.R
 import com.dinodelivery.app.database.repository.DishEntityRepository
 import com.dinodelivery.app.entities.Dish
+import com.dinodelivery.app.entities.SortItem
 import com.dinodelivery.app.utils.LiveEvent
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
@@ -28,6 +29,15 @@ class MenuViewModel(application: Application) : AndroidViewModel(application) {
             dishEntityRepository.addDish(dish.toDishEntity())
             message.value = context.getString(R.string.dish_added_successfully)
         }
+    }
+
+    fun getSortItemList(): List<SortItem> {
+        return listOf(
+            SortItem("За алфавітом", SortItem.SortCriteria.ALPHABET, false),
+            SortItem("За ціною", SortItem.SortCriteria.PRICE, false),
+            SortItem("За оцінкою", SortItem.SortCriteria.RATING, false)
+
+        )
     }
 
     companion object {

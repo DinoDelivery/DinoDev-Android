@@ -1,20 +1,26 @@
 package com.dinodelivery.app.fragments
 
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.dinodelivery.app.MainActivity
 import com.dinodelivery.app.R
 import com.dinodelivery.app.adapters.DishListAdapter
+import com.dinodelivery.app.adapters.OrderDividerDecoration
+import com.dinodelivery.app.adapters.SortItemListAdapter
 import com.dinodelivery.app.entities.Dish
+import com.dinodelivery.app.entities.SortItem
 import com.dinodelivery.app.viewmodels.MenuViewModel
+import kotlinx.android.synthetic.main.dish_sort_dialog.view.*
 import kotlinx.android.synthetic.main.fragment_menu.*
 
 
@@ -47,6 +53,8 @@ class MenuFragment : Fragment() {
             setDishes(it)
         }
 
+        initListeners()
+
         initObservers()
     }
 
@@ -54,7 +62,11 @@ class MenuFragment : Fragment() {
         menuRecyclerView.adapter =
             DishListAdapter(dishes, object : DishListAdapter.DishClickListener {
                 override fun onDishClick(dish: Dish) {
-                    (requireActivity() as MainActivity).navigateToFragmentAndAddToStack(DishFragment.newInstance(dish))
+                    (requireActivity() as MainActivity).navigateToFragmentAndAddToStack(
+                        DishFragment.newInstance(
+                            dish
+                        )
+                    )
                 }
 
                 override fun onDishSelect(dish: Dish) {
@@ -63,10 +75,57 @@ class MenuFragment : Fragment() {
             })
     }
 
+    private fun initListeners() {
+        btnSort.setOnClickListener { showSortDialog() }
+
+        btnSort.setOnLongClickListener {
+            dishes?.let { setDishes(it) }
+            true
+        }
+    }
+
     private fun initObservers() {
         menuViewModel.message.observe(viewLifecycleOwner, Observer { message ->
             Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
         })
+    }
+
+    private fun showSortDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.dish_sort_dialog, null)
+        val alertDialog = AlertDialog.Builder(requireContext()).setView(dialogView).create()
+        alertDialog.window?.setBackgroundDrawable(
+            ContextCompat.getDrawable(
+                requireContext(),
+                R.drawable.dialog_background
+            )
+        )
+        var sortedDishes = dishes
+
+        with(dialogView) {
+            sortCriteriaRecyclerView.adapter = SortItemListAdapter(
+                menuViewModel.getSortItemList(),
+                object : SortItemListAdapter.SortItemClickListener {
+                    override fun onSortItemSelected(sortItem: SortItem) {
+                        sortedDishes = when (sortItem.criteria) {
+                            SortItem.SortCriteria.ALPHABET -> dishes?.sortedBy { it.name }
+                            SortItem.SortCriteria.PRICE -> dishes?.sortedBy { it.price }
+                            SortItem.SortCriteria.RATING -> dishes?.sortedByDescending { it.rating }
+                            else -> dishes
+                        }
+                    }
+                })
+
+            sortCriteriaRecyclerView.addItemDecoration(OrderDividerDecoration())
+
+            btnSort.setOnClickListener {
+                sortedDishes?.let {
+                    setDishes(it)
+                }
+                alertDialog.dismiss()
+            }
+        }
+
+        alertDialog.show()
     }
 
     companion object {
