@@ -10,12 +10,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.dinodelivery.app.MainActivity
 import com.dinodelivery.app.R
+import com.dinodelivery.app.database.entities.OrderEntity
 import com.dinodelivery.app.utils.UserCacheUtils
+import com.dinodelivery.app.viewmodels.OrderViewModel
 import kotlinx.android.synthetic.main.cart_order_dialog.view.*
 import kotlinx.android.synthetic.main.fragment_cart.btnMap
 import kotlinx.android.synthetic.main.fragment_cart.txtOrderPrice
@@ -25,12 +29,19 @@ import java.util.*
 
 class CreateOrderFragment : Fragment() {
 
-    private var orderPrice: String? = null
+    private var orderPrice: Double = 0.0
+
+    private var orderItemQuantity: Int = 0
+
+    private val orderViewModel: OrderViewModel by lazy {
+        ViewModelProviders.of(requireActivity()).get(OrderViewModel::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            orderPrice = it.getString(ORDER_PRICE_KEY)
+            orderPrice = it.getDouble(ORDER_PRICE_KEY)
+            orderItemQuantity = it.getInt(ORDER_ITEM_QUANTITY_KEY)
         }
     }
 
@@ -50,13 +61,17 @@ class CreateOrderFragment : Fragment() {
     }
 
     private fun setInitialData() {
-        txtOrderPrice.text = orderPrice
+        txtOrderPrice.text = getString(R.string.order_cart_price, orderPrice.round())
         UserCacheUtils.cachedUserData?.let {
             fUserName.setText(it.username)
             fPhone.setText(it.phone)
         }
         paymentSpinner.adapter =
-            ArrayAdapter<String>(requireContext(), R.layout.rating_spinner_item, requireContext().resources.getStringArray(R.array.payment))
+            ArrayAdapter<String>(
+                requireContext(),
+                R.layout.rating_spinner_item,
+                requireContext().resources.getStringArray(R.array.payment)
+            )
         paymentSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
 
@@ -74,7 +89,25 @@ class CreateOrderFragment : Fragment() {
     private fun initListeners() {
         btnMap.setOnClickListener { goToMapFragment() }
         fTime.setOnClickListener { setTime() }
-        btnMakeOrder.setOnClickListener { showThankDialog() }
+        btnMakeOrder.setOnClickListener {
+            if (fAddress.text.isNullOrBlank() ||
+                fTime.text.isNullOrBlank() ||
+                fUserName.text.isNullOrBlank() ||
+                fPhone.text.isNullOrBlank()
+            ) {
+                Toast.makeText(requireContext(), getString(R.string.enter_order_info), Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            orderViewModel.saveOrder(
+                OrderEntity(
+                    orderItemQuantity,
+                    fAddress.text.toString(),
+                    fTime.text.toString(),
+                    orderPrice
+                )
+            )
+            showThankDialog()
+        }
     }
 
     @SuppressLint("SimpleDateFormat")
@@ -85,7 +118,13 @@ class CreateOrderFragment : Fragment() {
             cal.set(Calendar.MINUTE, minute)
             fTime.setText(SimpleDateFormat("HH:mm").format(cal.time))
         }
-        TimePickerDialog(requireContext(), timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
+        TimePickerDialog(
+            requireContext(),
+            timeSetListener,
+            cal.get(Calendar.HOUR_OF_DAY),
+            cal.get(Calendar.MINUTE),
+            true
+        ).show()
     }
 
     private fun showThankDialog() {
@@ -110,16 +149,20 @@ class CreateOrderFragment : Fragment() {
         (requireActivity() as MainActivity).navigateToFragment(MapFragment())
     }
 
+    private fun Double.round(decimals: Int = 2): String = "%.${decimals}f".format(this)
+
     companion object {
         private const val ORDER_PRICE_KEY = "order_price_key"
+        private const val ORDER_ITEM_QUANTITY_KEY = "order_item_quantity_key"
 
         private val TAG = CreateOrderFragment::class.java.simpleName
 
         @JvmStatic
-        fun newInstance(price: String) =
+        fun newInstance(price: Double, orderItemQuantity: Int) =
             CreateOrderFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ORDER_PRICE_KEY, price)
+                    putDouble(ORDER_PRICE_KEY, price)
+                    putInt(ORDER_ITEM_QUANTITY_KEY, orderItemQuantity)
                 }
             }
     }

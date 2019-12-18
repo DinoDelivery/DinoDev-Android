@@ -19,6 +19,9 @@ import kotlinx.android.synthetic.main.fragment_cart.*
 
 class CartFragment : Fragment() {
 
+    private var orderPrice: Double = 0.0
+    private var itemQuantity = 0
+
     private val cartViewModel: CartViewModel by lazy {
         ViewModelProviders.of(this).get(CartViewModel::class.java)
     }
@@ -48,7 +51,7 @@ class CartFragment : Fragment() {
 
         btnMakeOrder.setOnClickListener {
             (requireActivity() as MainActivity).navigateToFragment(
-                CreateOrderFragment.newInstance(txtOrderPrice.text.toString())
+                CreateOrderFragment.newInstance(orderPrice, itemQuantity)
             )
         }
     }
@@ -56,7 +59,14 @@ class CartFragment : Fragment() {
     private fun initObservers() {
         cartViewModel.cartItems.observe(viewLifecycleOwner, Observer {
 
-            txtOrderPrice.text = getString(R.string.order_cart_price, getPrice(it))
+            if(it.isNullOrEmpty()) {
+                btnMakeOrder.isEnabled = false
+            }
+
+            itemQuantity = getItemQuantity(it)
+
+            orderPrice = getPrice(it)
+            txtOrderPrice.text = getString(R.string.order_cart_price, orderPrice.round())
 
             cartItemsRecyclerView.adapter =
                 CartItemListAdapter(it, object : CartItemListAdapter.CartItemClickListener {
@@ -77,8 +87,12 @@ class CartFragment : Fragment() {
         })
     }
 
-    private fun getPrice(cartItems: List<Pair<DishEntity, Int>>): String {
-        return cartItems.map { it.first.price * it.second }.sum().round()
+    private fun getPrice(cartItems: List<Pair<DishEntity, Int>>): Double {
+        return cartItems.map { it.first.price * it.second }.sum()
+    }
+
+    private fun getItemQuantity(cartItems: List<Pair<DishEntity, Int>>): Int {
+        return cartItems.map { it.second }.sum()
     }
 
     private fun Double.round(decimals: Int = 2): String = "%.${decimals}f".format(this)

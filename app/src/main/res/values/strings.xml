@@ -76,8 +76,10 @@
     <string name="go_to_main_screen">На головну</string>
 
     <string-array name="payment">
-        <item>Карткою</item>
         <item>Готівкою</item>
+        <item>Карткою</item>
     </string-array>
+
+    <string name="enter_order_info">Будь ласка, заповніть інформацію про замовлення</string>
 
 </resources>

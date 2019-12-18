@@ -17,7 +17,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.dinodelivery.app.R
 import com.dinodelivery.app.adapters.OrderDividerDecoration
 import com.dinodelivery.app.adapters.OrderListAdapter
-import com.dinodelivery.app.entities.Order
+import com.dinodelivery.app.database.entities.OrderEntity
 import com.dinodelivery.app.viewmodels.OrderViewModel
 import kotlinx.android.synthetic.main.fragment_order.*
 import kotlinx.android.synthetic.main.order_dialog.view.*
@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.rate_delivery_dialog.view.*
 class OrderFragment : Fragment() {
 
     private val orderViewModel: OrderViewModel by lazy {
-        ViewModelProviders.of(this).get(OrderViewModel::class.java)
+        ViewModelProviders.of(requireActivity()).get(OrderViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -60,21 +60,30 @@ class OrderFragment : Fragment() {
 
     private fun initObservers() {
         orderViewModel.orders.observe(viewLifecycleOwner, Observer {
+            if(it.isNullOrEmpty()) {
+                imgEmptyList.visibility = View.VISIBLE
+            }else{
+                imgEmptyList.visibility = View.GONE
+            }
             setOrderList(it)
+        })
+
+        orderViewModel.orderChanged.observe(viewLifecycleOwner, Observer{
+            orderViewModel.getOrders()
         })
     }
 
-    private fun setOrderList(orders: List<Order>) {
+    private fun setOrderList(orders: List<OrderEntity>) {
         orderRecyclerView.adapter =
             OrderListAdapter(orders, object : OrderListAdapter.OrderClickListener {
-                override fun onOrderClick(order: Order) {
+                override fun onOrderClick(order: OrderEntity) {
                     showOrderDetails(order)
                 }
             })
         orderRecyclerView.addItemDecoration(OrderDividerDecoration())
     }
 
-    private fun showOrderDetails(order: Order) {
+    private fun showOrderDetails(order: OrderEntity) {
         val dialogView = layoutInflater.inflate(R.layout.order_dialog, null)
         val alertDialog = AlertDialog.Builder(requireContext()).setView(dialogView).create()
         alertDialog.window?.setBackgroundDrawable(
@@ -87,9 +96,10 @@ class OrderFragment : Fragment() {
             txtOrderItemCount.text = getString(R.string.order_item_count, order.itemCount)
             txtOrderAddress.text = getString(R.string.order_delivery_address, order.deliveryAddress)
             txtOrderTime.text = getString(R.string.order_delivery_time, order.deliveryTime)
-            txtOrderPrice.text = getString(R.string.order_price, order.price.round())
+            txtOrderPrice.text = getString(R.string.order_price, order.price?.round())
             btnNotDelivered.setOnClickListener { alertDialog.dismiss() }
             btnDelivered.setOnClickListener {
+                orderViewModel.deleteOrder(order.id)
                 showRateDialog()
                 alertDialog.dismiss()
             }
